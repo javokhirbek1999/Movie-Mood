@@ -1,0 +1,22 @@
+version: '3.9'
+
+services:
+  web:
+    build: .
+    environment:
+      PORT: 8000
+      HOST: 0.0.0.0
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    command: /start.sh
+
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: mydb
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
