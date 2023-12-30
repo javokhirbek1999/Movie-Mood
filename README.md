@@ -83,7 +83,7 @@ you will get the following view:
 
 More details about the api endpoints:
 
-```localhost:8000/admin/``` - you can authenticate the use using this url <br>
+```localhost:8000/admin/``` - you can authenticate the user using this url <br>
 ```localhost:8000/api/users/``` - endpoint for users funcitionality <br>
 ```localhost:8000/api/movies/``` - endpoint for movies functionality <br>
 ```localhost:8000/api/bookings/``` - endpoint for bookings functionality <br>
@@ -91,3 +91,5 @@ More details about the api endpoints:
 ```localhost:8000/swagger/``` - endpoint for swagger documentation
 ```localhost:8000/redoc/``` - endpoint for redocly documentation
 
+
+Once you create the user, make sure to authenticate it on ```localhost:8000/admin/```. Enter the email and password and you will be automatically authenticated and you can perform all of the actions once you are authenticated.
