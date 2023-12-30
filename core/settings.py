@@ -37,9 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    
+    'drf_yasg',
     'rest_framework',
     'rest_framework.authtoken',
+    
     'api',
 ]
 
@@ -78,18 +80,18 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'mydb',       # Replace 'mydb' with your database name
+    #     'USER': 'myuser',     # Replace 'myuser' with your database user
+    #     'PASSWORD': 'mypassword', # Replace 'mypassword' with your database password
+    #     'HOST': 'db',  # Replace 'localhost' with your database host if it's not on localhost
+    #     'PORT': '5432',        
+    # },
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mydb',       # Replace 'mydb' with your database name
-        'USER': 'myuser',     # Replace 'myuser' with your database user
-        'PASSWORD': 'mypassword', # Replace 'mypassword' with your database password
-        'HOST': 'localhost',  # Replace 'localhost' with your database host if it's not on localhost
-        'PORT': '5432',        
-    },
-    # 'sqlite3': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 

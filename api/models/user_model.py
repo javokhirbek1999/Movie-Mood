@@ -18,7 +18,7 @@ class UserManager(BaseUserManager):
 
     use_in_migrations = True
 
-    def create_user(self, first_name, last_name, username, email, password=None, **kwargs: Any) -> Any:
+    def create_user(self, first_name, last_name, email, password=None, **kwargs: Any) -> Any:
 
         """Creates a new user model with email validation."""
 
@@ -38,11 +38,11 @@ class UserManager(BaseUserManager):
         return user
     
 
-    def create_superuser(self, first_name, last_name, username, email, password):
+    def create_superuser(self, first_name, last_name, email, password):
 
         """Creates a new admin user."""
 
-        user = self.create_user(first_name=first_name, last_name=last_name, username=username, email=email, password=password)
+        user = self.create_user(first_name=first_name, last_name=last_name, email=email, password=password)
 
 
         # Admin users are activated by default
@@ -60,7 +60,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 
     email = models.EmailField(max_length=200, unique=True)
-    username = models.CharField(max_length=200, unique=True, null=False, blank=False)
+    # username = models.CharField(max_length=200, unique=True, null=False, blank=False)
     first_name = models.CharField(max_length=200, unique=False, null=False, blank=False)
     last_name = models.CharField(max_length=200, unique=False, null=False, blank=False)
     date_joined = models.DateTimeField(auto_now_add=True)
@@ -72,4 +72,4 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     USERNAME_FIELD = 'email'
 
-    REQUIRED_FIELDS = ['username', 'first_name', 'last_name']
+    REQUIRED_FIELDS = ['first_name', 'last_name']

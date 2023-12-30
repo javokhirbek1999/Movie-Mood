@@ -43,16 +43,16 @@ class AuthTokenAPIView(ObtainAuthToken):
 
 
     def post(self, request, *args, **kwargs):
-        
         serializer = AuthTokenSerializer(data=request.data, context={'request': request})
         serializer.is_valid(raise_exception=True)
         user = serializer.validated_data['user']
         
         token, _ = Token.objects.get_or_create(user=user)
 
+
         return Response({
             'token': token.key,
             'user_id': user.pk,
-            'username': user.username,
+            # 'username': user.username,
             'email': user.email
         })

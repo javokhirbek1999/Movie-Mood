@@ -11,7 +11,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = get_user_model()
-        fields = ('email', 'username', 'first_name', 'last_name', 'date_joined', 'date_updated', 'password', 'is_staff', 'is_active')
+        fields = ('email', 'first_name', 'last_name', 'date_joined', 'date_updated', 'password', 'is_staff', 'is_active')
         extra_kwargs = {
             'date_joined': {'read_only': True},
             'date_updated': {'read_only': True},
@@ -20,7 +20,7 @@ class UserSerializer(serializers.ModelSerializer):
     
 
     def create(self, validated_data):
-        return super().create(validated_data)
+        return get_user_model().objects.create_user(**validated_data)
 
 
 class AuthTokenSerializer(serializers.Serializer):
